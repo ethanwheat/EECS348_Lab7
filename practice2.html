@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Font Control</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #text {
+      margin: 20px auto;
+      padding: 20px;
+      font-size: 16px;
+      color: black;
+      background-color: white;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <p id="text">Using text fields below, enter RGB values for this paragraph and for its border. 
+  You can also control the width of the border.</p> 
+  <form>
+    <label for="bg-r">Background R:</label>
+    <input type="text" id="bg-r" name="bg-r" value="255"><br>
+    <label for="bg-g">Background G:</label>
+    <input type="text" id="bg-g" name="bg-g" value="255"><br>
+    <label for="bg-b">Background B:</label>
+    <input type="text" id="bg-b" name="bg-b" value="255"><br>
+    <label for="border-r">Border R:</label>
+    <input type="text" id="border-r" name="border-r" value="0"><br>
+    <label for="border-g">Border G:</label>
+    <input type="text" id="border-g" name="border-g" value="0"><br>
+    <label for="border-b">Border B:</label>
+    <input type="text" id="border-b" name="border-b" value="0"><br>
+    <label for="border-width">Border Width:</label>
+    <input type="text" id="border-width" name="border-width" value="1"><br>
+    <button type="button" onclick="updateStyle()">Update</button>
+  </form>
+  <script>
+    const bgRInput = document.getElementById("bg-r");
+    const bgGInput = document.getElementById("bg-g");
+    const bgBInput = document.getElementById("bg-b");
+    const borderRInput = document.getElementById("border-r");
+    const borderGInput = document.getElementById("border-g");
+    const borderBInput = document.getElementById("border-b");
+    const borderWidthInput = document.getElementById("border-width");
+    const textElement = document.getElementById("text");
+    
+    function updateStyle() {
+      const bgR = bgRInput.value;
+      const bgG = bgGInput.value;
+      const bgB = bgBInput.value;
+      const borderR = borderRInput.value;
+      const borderG = borderGInput.value;
+      const borderB = borderBInput.value;
+      const borderWidth = borderWidthInput.value;
+      
+      textElement.style.backgroundColor = `rgb(${bgR}, ${bgG}, ${bgB})`;
+      textElement.style.borderColor = `rgb(${borderR}, ${borderG}, ${borderB})`;
+      textElement.style.borderWidth = `${borderWidth}px`;
+    }
+  </script>
+</body>
+</html>
